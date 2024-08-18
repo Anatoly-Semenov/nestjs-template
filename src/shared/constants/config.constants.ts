@@ -1,0 +1,10 @@
+export const CONFIG__APP_ENV = 'APP_ENV';
+export const CONFIG__RUN_MODE = 'RUN_MODE';
+export const CONFIG__NODE_ENV = 'NODE_ENV';
+export const CONFIG__CACHE_BASE_TTL = 'CACHE__BASE_TTL';
+
+export const CONFIG__SA_USERNAME = 'SA__USER';
+export const CONFIG__SA_PASSWORD = 'SA__PASSWORD';
+
+export const CONFIG__HEALTH_REST_BASE_URL = 'HEALTH__REST_BASE_URL';
+export const CONFIG__HEALTH_GRPC_BASE_URL = 'HEALTH__GRPC_BASE_URL';

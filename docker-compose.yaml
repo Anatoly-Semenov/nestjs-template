@@ -1,0 +1,40 @@
+services:
+  http_service:
+    build:
+      context: .
+      dockerfile: env.d/docker.d/Dockerfile
+      target: runtime-development
+    container_name: "${COMPOSE_PROJECT_NAME}__http_gateway"
+    volumes:
+      - ./src:/opt/app/src
+      - ./test:/opt/app/test
+    env_file:
+      - app.env
+    environment:
+      RUN_MODE: "MODE_HTTP"
+    ports:
+      - "${PORT__APP_HTTP}:3000"
+
+  grpc_service:
+    build:
+      context: .
+      dockerfile: env.d/docker.d/Dockerfile
+      target: runtime-development
+    container_name: "${COMPOSE_PROJECT_NAME}__grpc_gateway"
+    volumes:
+      - ./src:/opt/app/src
+      - ./test:/opt/app/test
+    env_file:
+      - app.env
+    environment:
+      RUN_MODE: "MODE_GRPC"
+      CA_CERT_FILE: "/run/secrets/ca_certificate"
+      SERVER_CERT_FILE: "/run/secrets/server_certificate"
+      SERVER_KEY_FILE: "/run/secrets/server_key"
+      GRPC_VERBOSITY: "DEBUG"
+    secrets:
+      - ca_certificate
+      - server_certificate
+      - server_key
+    ports:
+      - "${PORT__APP_GRPC}:3000"
