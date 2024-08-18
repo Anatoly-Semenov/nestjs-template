@@ -18,8 +18,8 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@strana/nest-template-shared/*": ["src/shared/*"],
-      "@strana/nest-template-common/*": ["src/common/*"]
+      "@project_name/shared/*": ["src/shared/*"],
+      "@project_name/common/*": ["src/common/*"]
     }
   }
 }
